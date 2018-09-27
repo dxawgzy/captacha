@@ -215,11 +215,14 @@ def test_data():
         im = cv2.imread(filepath)
         preds = get_code(im)
         chars = filename.split(".")[0]
-        print(chars, preds)
+        flag = True
         for i in range(len(chars)):
             if chars[i] == preds[i]:
                 correct += 1
+            else:
+                flag = False
             total += 1
+        print(chars, preds, flag)
     print(correct/total)
 
 if __name__ == "__main__":
